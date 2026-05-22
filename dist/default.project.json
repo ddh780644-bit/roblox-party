@@ -1,0 +1,66 @@
+{
+	"name": "RobloxParty",
+	"serve": {
+		"host": "0.0.0.0",
+		"port": 8080
+	},
+	"plugins": [
+		"RojoPlugin"
+	],
+	"packages": {},
+	"watches": [
+		{
+			"name": "src",
+			"path": "./src"
+		}
+	],
+	"ports": {
+		"RojoPlugin": 8080
+	},
+	"root": "src",
+	"tree": {
+		"name": "RobloxParty",
+		"className": "DataModel",
+		"children": [
+			{
+				"name": "ServerScriptService",
+				"className": "ServerScriptService",
+				"children": [
+					{
+						"name": "RobloxParty",
+						"className": "Script",
+						"path": "src/server"
+					}
+				]
+			},
+			{
+				"name": "ReplicatedStorage",
+				"className": "ReplicatedStorage",
+				"children": [
+					{
+						"name": "SharedModules",
+						"className": "ModuleScript",
+						"path": "src/shared"
+					}
+				]
+			},
+			{
+				"name": "StarterPlayer",
+				"className": "StarterPlayer",
+				"children": [
+					{
+						"name": "StarterPlayerScripts",
+						"className": "StarterPlayerScripts",
+						"children": [
+							{
+								"name": "RobloxParty",
+								"className": "LocalScript",
+								"path": "src/client"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}

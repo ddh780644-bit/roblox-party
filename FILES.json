@@ -1,0 +1,156 @@
+{
+  "project": "Roblox Party Game",
+  "version": "1.0.0",
+  "description": "Roblox Party Game organized for Rojo sync with Luau type annotations",
+  "files": {
+    "rojo_config": "default.project.json",
+    "readme": "LUAU_README.md"
+  },
+  "structure": {
+    "ServerScriptService": [
+      {
+        "name": "GameManager.luau",
+        "path": "src/ServerScriptService/GameManager.luau",
+        "type": "Luau Module",
+        "description": "Main game orchestrator with Luau types"
+      },
+      {
+        "name": "BoardManager.luau",
+        "path": "src/ServerScriptService/BoardManager.luau",
+        "type": "Luau Module",
+        "description": "Board management with Luau types"
+      },
+      {
+        "name": "GameInit.lua",
+        "path": "src/ServerScriptService/GameInit.lua",
+        "type": "Lua Module",
+        "description": "Game initialization script"
+      },
+      {
+        "name": "MiniGameRegistry.lua",
+        "path": "src/ServerScriptService/MiniGameRegistry.lua",
+        "type": "Lua Module",
+        "description": "Mini-game registry with 3 games"
+      },
+      {
+        "name": "LobbyManager.lua",
+        "path": "src/ServerScriptService/LobbyManager.lua",
+        "type": "Lua Module",
+        "description": "Lobby management system"
+      },
+      {
+        "name": "EconomyManager.lua",
+        "path": "src/ServerScriptService/EconomyManager.lua",
+        "type": "Lua Module",
+        "description": "Player economy management"
+      }
+    ],
+    "ReplicatedStorage": {
+      "RemoteEvents": [
+        {
+          "name": "LobbyEvents.lua",
+          "path": "src/ReplicatedStorage/RemoteEvents/LobbyEvents.lua",
+          "type": "Lua Module",
+          "description": "Lobby remote events"
+        },
+        {
+          "name": "EconomyEvents.lua",
+          "path": "src/ReplicatedStorage/RemoteEvents/EconomyEvents.lua",
+          "type": "Lua Module",
+          "description": "Economy remote events"
+        },
+        {
+          "name": "MiniGameEvents.lua",
+          "path": "src/ReplicatedStorage/RemoteEvents/MiniGameEvents.lua",
+          "type": "Lua Module",
+          "description": "Mini-game remote events"
+        },
+        {
+          "name": "GameEvents.luau",
+          "path": "src/ReplicatedStorage/RemoteEvents/GameEvents.luau",
+          "type": "Luau Module",
+          "description": "Game state remote events with Luau types"
+        }
+      ],
+      "SharedModules": [
+        {
+          "name": "GameState.luau",
+          "path": "src/ReplicatedStorage/SharedModules/GameState.luau",
+          "type": "Luau Module",
+          "description": "Game state management with Luau types"
+        },
+        {
+          "name": "PlayerData.luau",
+          "path": "src/ReplicatedStorage/SharedModules/PlayerData.luau",
+          "type": "Luau Module",
+          "description": "Player data management with Luau types"
+        },
+        {
+          "name": "GameState.lua",
+          "path": "src/ReplicatedStorage/SharedModules/GameState.lua",
+          "type": "Lua Module",
+          "description": "Game state management (legacy)"
+        },
+        {
+          "name": "PlayerData.lua",
+          "path": "src/ReplicatedStorage/SharedModules/PlayerData.lua",
+          "type": "Lua Module",
+          "description": "Player data management (legacy)"
+        }
+      ]
+    },
+    "StarterPlayer": {
+      "StarterPlayerScripts": [
+        {
+          "name": "ClientUI.luau",
+          "path": "src/StarterPlayer/StarterPlayerScripts/ClientUI.luau",
+          "type": "Luau Module",
+          "description": "Client UI with Luau types"
+        },
+        {
+          "name": "ClientUI.lua",
+          "path": "src/StarterPlayer/StarterPlayerScripts/ClientUI.lua",
+          "type": "Lua Module",
+          "description": "Client UI (legacy)"
+        }
+      ]
+    }
+  },
+  "mini_games": [
+    {
+      "name": "DiceBattle",
+      "description": "Roll dice to win! Highest roll wins the pot.",
+      "players": "2-6"
+    },
+    {
+      "name": "NumberGuess",
+      "description": "Guess the number between 1-100 to win!",
+      "players": "1-10"
+    },
+    {
+      "name": "PaperScissorsRock",
+      "description": "Classic game of chance!",
+      "players": "2-4"
+    }
+  ],
+  "remote_events": {
+    "lobby": ["PlayerJoined", "ReadyStatusChanged", "LobbyFull", "GameStarting"],
+    "economy": ["BalanceChanged", "TransactionCompleted", "PaydayStarted", "PaydayEnded"],
+    "minigame": ["MiniGameStarted", "MiniGameEnded", "PositionChanged", "BoardUpdated"],
+    "game": ["GameStateUpdated", "RoundStarted", "MiniGameStarted", "MiniGameEnded", "GameEnded"]
+  },
+  "installation": {
+    "prerequisites": [
+      "Roblox Studio",
+      "Node.js v16+",
+      "Rojo (npm install -g rojo)"
+    ],
+    "steps": [
+      "npm install -g rojo",
+      "cd roblox-party-game",
+      "rojo serve",
+      "Open Roblox Studio and connect to Rojo",
+      "Click 'Sync to Roblox' in the Rojo plugin"
+    ]
+  }
+}
